@@ -1,0 +1,474 @@
+fileFormatVersion: 2
+guid: 7e060bc54e58ae34aa1541507b301d4a
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bath_ambry001
+    100002: Bath_group_002
+    100004: bathtub001
+    100006: bidet001
+    100008: carpet001
+    100010: Chair_007
+    100012: Chair_008
+    100014: Chair_009
+    100016: Chair_010
+    100018: Chair_011
+    100020: Chair_012
+    100022: Coffe_table001
+    100024: cupboard001
+    100026: Door_003
+    100028: Door_004
+    100030: F_pot001
+    100032: F_pot_003
+    100034: F_pot_004
+    100036: Frame001
+    100038: I_box_005
+    100040: I_box_006
+    100042: I_box_007
+    100044: I_box_008
+    100046: icebox001
+    100048: //RootNode
+    100050: jungle_bush001
+    100052: jungle_bush_palm002
+    100054: jungle_bush_palm003
+    100056: Kitchen001
+    100058: magazines001
+    100060: Particle View 002
+    100062: Particle View 01
+    100064: Plinth001
+    100066: rack001
+    100068: rack_003
+    100070: rack_tv001
+    100072: Sofa001
+    100074: Table001
+    100076: toilet001
+    100078: TV001
+    100080: walls001
+    400000: Bath_ambry001
+    400002: Bath_group_002
+    400004: bathtub001
+    400006: bidet001
+    400008: carpet001
+    400010: Chair_007
+    400012: Chair_008
+    400014: Chair_009
+    400016: Chair_010
+    400018: Chair_011
+    400020: Chair_012
+    400022: Coffe_table001
+    400024: cupboard001
+    400026: Door_003
+    400028: Door_004
+    400030: F_pot001
+    400032: F_pot_003
+    400034: F_pot_004
+    400036: Frame001
+    400038: I_box_005
+    400040: I_box_006
+    400042: I_box_007
+    400044: I_box_008
+    400046: icebox001
+    400048: //RootNode
+    400050: jungle_bush001
+    400052: jungle_bush_palm002
+    400054: jungle_bush_palm003
+    400056: Kitchen001
+    400058: magazines001
+    400060: Particle View 002
+    400062: Particle View 01
+    400064: Plinth001
+    400066: rack001
+    400068: rack_003
+    400070: rack_tv001
+    400072: Sofa001
+    400074: Table001
+    400076: toilet001
+    400078: TV001
+    400080: walls001
+    2100000: bit
+    2100002: fasad
+    2100004: floor_desk
+    2100006: floor_pl
+    2100008: walls_O
+    2100010: Kitchen_pl
+    2100012: in_metall_D
+    2100014: H1_glass
+    2100016: leather
+    2100018: in_metall
+    2100020: plastic_D
+    2100022: carpet
+    2100024: plastick_w
+    2100026: mebel_wood
+    2100028: 'H_V_in Slot #4'
+    2100030: Countertop
+    2100032: Plinth
+    2100034: in_glass
+    2100036: ceramica
+    2100038: vin_mirror
+    2100040: 'Material #1454571028'
+    2100042: screen
+    2100044: photo_03
+    2100046: photo_01
+    2100048: photo_02
+    2100050: vin_ground
+    2100052: cover
+    2100054: listopen_01
+    2100056: listopen_02
+    2100058: listopen_03
+    2100060: 'Material #7'
+    2100062: 'Material #9'
+    2300000: Bath_ambry001
+    2300002: Bath_group_002
+    2300004: bathtub001
+    2300006: bidet001
+    2300008: carpet001
+    2300010: Chair_007
+    2300012: Chair_008
+    2300014: Chair_009
+    2300016: Chair_010
+    2300018: Chair_011
+    2300020: Chair_012
+    2300022: Coffe_table001
+    2300024: cupboard001
+    2300026: Door_003
+    2300028: Door_004
+    2300030: F_pot001
+    2300032: F_pot_003
+    2300034: F_pot_004
+    2300036: Frame001
+    2300038: I_box_005
+    2300040: I_box_006
+    2300042: I_box_007
+    2300044: I_box_008
+    2300046: icebox001
+    2300048: jungle_bush001
+    2300050: jungle_bush_palm002
+    2300052: jungle_bush_palm003
+    2300054: Kitchen001
+    2300056: magazines001
+    2300058: Plinth001
+    2300060: rack001
+    2300062: rack_003
+    2300064: rack_tv001
+    2300066: Sofa001
+    2300068: Table001
+    2300070: toilet001
+    2300072: TV001
+    2300074: walls001
+    3300000: Bath_ambry001
+    3300002: Bath_group_002
+    3300004: bathtub001
+    3300006: bidet001
+    3300008: carpet001
+    3300010: Chair_007
+    3300012: Chair_008
+    3300014: Chair_009
+    3300016: Chair_010
+    3300018: Chair_011
+    3300020: Chair_012
+    3300022: Coffe_table001
+    3300024: cupboard001
+    3300026: Door_003
+    3300028: Door_004
+    3300030: F_pot001
+    3300032: F_pot_003
+    3300034: F_pot_004
+    3300036: Frame001
+    3300038: I_box_005
+    3300040: I_box_006
+    3300042: I_box_007
+    3300044: I_box_008
+    3300046: icebox001
+    3300048: jungle_bush001
+    3300050: jungle_bush_palm002
+    3300052: jungle_bush_palm003
+    3300054: Kitchen001
+    3300056: magazines001
+    3300058: Plinth001
+    3300060: rack001
+    3300062: rack_003
+    3300064: rack_tv001
+    3300066: Sofa001
+    3300068: Table001
+    3300070: toilet001
+    3300072: TV001
+    3300074: walls001
+    4300000: walls001
+    4300002: Chair_007
+    4300004: carpet001
+    4300006: Coffe_table001
+    4300008: Kitchen001
+    4300010: icebox001
+    4300012: Table001
+    4300014: Door_003
+    4300016: Chair_008
+    4300018: Chair_009
+    4300020: Chair_010
+    4300022: Chair_011
+    4300024: Chair_012
+    4300026: bidet001
+    4300028: toilet001
+    4300030: Bath_group_002
+    4300032: bathtub001
+    4300034: Sofa001
+    4300036: TV001
+    4300038: cupboard001
+    4300040: rack001
+    4300042: I_box_005
+    4300044: I_box_006
+    4300046: I_box_007
+    4300048: I_box_008
+    4300050: Frame001
+    4300052: F_pot_003
+    4300054: rack_tv001
+    4300056: magazines001
+    4300058: rack_003
+    4300060: jungle_bush_palm002
+    4300062: jungle_bush001
+    4300064: F_pot_004
+    4300066: Plinth001
+    4300068: Door_004
+    4300070: F_pot001
+    4300072: jungle_bush_palm003
+    4300074: Bath_ambry001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Countertop
+    second: {fileID: 2100000, guid: 037c9e17c59a0f746a6aa587735dc995, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: H1_glass
+    second: {fileID: 2100000, guid: 2c80af37e27e72f4cb9b576760a97be0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'H_V_in Slot #4'
+    second: {fileID: 2100000, guid: aeb2819ab9153e2449f2b70842325160, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kitchen_pl
+    second: {fileID: 2100000, guid: 2b322f9fdc7ec0d48855e46053c3bcdd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #1454571028'
+    second: {fileID: 2100000, guid: 6e132535ae280214d83c52038ee6ef1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #7'
+    second: {fileID: 2100000, guid: 645d9ac5124c8aa4190de8782f5611c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #9'
+    second: {fileID: 2100000, guid: f3991bcd19fca53499fdfcfc979970fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plinth
+    second: {fileID: 2100000, guid: 8fcea721b4d9750468e32459d3e2ae67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bit
+    second: {fileID: 2100000, guid: 91da4f140e4f735429a35908e11314e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carpet
+    second: {fileID: 2100000, guid: 44fd5de9fe47fb44ca22b272526264b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ceramica
+    second: {fileID: 2100000, guid: b462ad71b6bb7d945931988277ce8c02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cover
+    second: {fileID: 2100000, guid: 8b3e6cf7d38871d4eba25724d5d3ded8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fasad
+    second: {fileID: 2100000, guid: d80da911f91c54a45826dd5cb439abbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_desk
+    second: {fileID: 2100000, guid: fbd7ef01293ccad4caaf445fde15918c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_pl
+    second: {fileID: 2100000, guid: 462389da471016d4fb57f22dccd21b81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: in_glass
+    second: {fileID: 2100000, guid: 5109dcbd17dcdb3498c10181c16849a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: in_metall
+    second: {fileID: 2100000, guid: e65233251d1fa0f4bbd20d0ef2cecd12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: in_metall_D
+    second: {fileID: 2100000, guid: f1ee0905648846a45a6da7b8d73f649b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leather
+    second: {fileID: 2100000, guid: 08ddbd13055e1e44087e5a8ea1b8ed07, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: listopen_01
+    second: {fileID: 2100000, guid: cec2b9563c4e2554dba8c10a05079634, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: listopen_02
+    second: {fileID: 2100000, guid: dcfcda561bc6c5c4e9ad058597db7787, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: listopen_03
+    second: {fileID: 2100000, guid: a8fb1ef05a6b4184eacaa6b0c51e3c63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mebel_wood
+    second: {fileID: 2100000, guid: c69e0808424db784889c083c9614f83a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: photo_01
+    second: {fileID: 2100000, guid: 281c3f3835234eb409238218a5c6147d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: photo_02
+    second: {fileID: 2100000, guid: be6c203b3270a7e46a520153e47ee0f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: photo_03
+    second: {fileID: 2100000, guid: d9ed85863a28e1240b2989494bf60bbb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_D
+    second: {fileID: 2100000, guid: f85cf7941a9c2034bab98a8ee5498ed4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastick_w
+    second: {fileID: 2100000, guid: 81e8a7d38812e66439febe4c5dc10c1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen
+    second: {fileID: 2100000, guid: 25b3a8eae1bbac84b8f134f47098e9f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vin_ground
+    second: {fileID: 2100000, guid: ac093d71b329e5f4fbbe241ab234c366, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vin_mirror
+    second: {fileID: 2100000, guid: 694bef80de07d5f46a3bf59a647b7ea4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: walls_O
+    second: {fileID: 2100000, guid: 07d645b9d27649d46a122fdfb39fc43e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3d6711e8e850141808756f4b7adb16a6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - doorToVirtual: {instanceID: 0}
+  - doorToReality: {instanceID: 0}
+  - particleLauncher: {instanceID: 0}
+  - mainCamera: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
