@@ -434,7 +434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 164.9, y: 16.571167}
+  m_AnchoredPosition: {x: 164.9, y: 16.57129}
   m_SizeDelta: {x: 320, y: 90}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &111010476
@@ -556,7 +556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -165.38153, y: 16.571228}
+  m_AnchoredPosition: {x: -165.38153, y: 16.57129}
   m_SizeDelta: {x: 320, y: 90}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &144707890
@@ -655,6 +655,7 @@ GameObject:
   - component: {fileID: 314050439}
   - component: {fileID: 314050438}
   - component: {fileID: 314050437}
+  - component: {fileID: 314050442}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -741,6 +742,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!54 &314050442
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 314050436}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &418939749 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1557449750336138, guid: 7d107d3c7d3484bfb96d308e6b488ff7,
@@ -1098,7 +1114,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 708563339}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 201.5, z: 0}
+  m_LocalPosition: {x: 2.134, y: 176.6, z: 1.889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 28794521}
@@ -1677,7 +1693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1034812462}
   m_Layer: 0
-  m_Name: VirtualEnvironment2
+  m_Name: Living Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1690,7 +1706,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1034812461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 200, z: 0}
+  m_LocalPosition: {x: -0.97, y: 175, z: 6.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467423622}
@@ -1754,7 +1770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1141627654}
   m_Layer: 0
-  m_Name: VirtualEnvironment1
+  m_Name: Model House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1767,7 +1783,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141627653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 185.75, z: 0}
+  m_LocalPosition: {x: 1, y: 200, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1932940012}
@@ -2310,7 +2326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 16.571228}
+  m_AnchoredPosition: {x: 0, y: 16.57129}
   m_SizeDelta: {x: 320, y: 90}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1491346614
@@ -2676,7 +2692,7 @@ Transform:
   - {fileID: 1786761501}
   - {fileID: 478030915}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1782255291
 MonoBehaviour:
@@ -2784,6 +2800,7 @@ MonoBehaviour:
   instructionText: {fileID: 1012226542}
   doorToVirtual: {fileID: 478030914}
   doorToReality: {fileID: 478030914}
+  destination: {fileID: 708563339}
   particleLauncher: {fileID: 198163465648489840, guid: 465f0332c08504bff81f24493876a221,
     type: 2}
   mainCamera: {fileID: 906000345}
@@ -3023,7 +3040,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4661046637869644, guid: 8ce7d6271a01a4274a00066492aed04a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1214069642587422, guid: 8ce7d6271a01a4274a00066492aed04a, type: 2}
       propertyPath: m_IsActive

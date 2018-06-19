@@ -1,11 +1,5 @@
 ﻿<Properties StartupConfiguration="{9216D6A4-404B-FE63-0212-25B2F151542A}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ARKitPortals/TransitionScripts/PortalTransition.cs">
-    <Files>
-      <File FileName="Assets/ARKitPortals/TransitionScripts/DoorManager.cs" Line="37" Column="10" />
-      <File FileName="Assets/ARKitPortals/TransitionScripts/PortalTransition.cs" Line="15" Column="39" />
-      <File FileName="Assets/PortalsWithRenderTargets/Scripts/Portal.cs" Line="5" Column="26" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

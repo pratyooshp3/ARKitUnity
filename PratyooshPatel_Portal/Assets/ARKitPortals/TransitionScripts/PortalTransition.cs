@@ -21,7 +21,7 @@ public class PortalTransition : MonoBehaviour {
 		if (OnPortalTransition != null) {
 			// Emit a static OnPortalTransition event every time the camera enters a portal. The DoorManager listens for this event.
 		
-            Instantiate(particleLauncher, transform.position, transform.rotation);
+            Instantiate(particleLauncher, transform.position, transform.rotation);      // Animation of particle system when user enters the portal
         
             OnPortalTransition ();
           

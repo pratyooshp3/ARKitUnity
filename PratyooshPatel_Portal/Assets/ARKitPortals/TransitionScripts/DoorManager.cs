@@ -16,6 +16,7 @@ public class DoorManager : MonoBehaviour
     public Text instructionText;
     public GameObject doorToVirtual;
     public GameObject doorToReality;
+    public GameObject destination;                      // Position selection of 3D model to be displayed 
     public UnityEngine.ParticleSystem particleLauncher;
     public Camera mainCamera;
     private List<GameObject> spawnedObjects = new List<GameObject>();
@@ -28,32 +29,31 @@ public class DoorManager : MonoBehaviour
 
     void Start()
     {
-        instructionText.text = "Looking for the planes, keep the camera pointed to the floor.";
+        instructionText.text = "Looking for the planes, keep the camera pointed to the floor.";         // User instruction to keep the phone pointed to the floor
         PortalTransition.OnPortalTransition += OnDoorEntrance;
 
-
-       // UnityARSessionNativeInterface.ARFrameUpdatedEvent += LookingForPlanes;
-        UnityARSessionNativeInterface.ARAnchorAddedEvent += PlanesFound;
+        UnityARSessionNativeInterface.ARAnchorAddedEvent += PlanesFound;   
+       // UnityARSessionNativeInterface.ARFrameUpdatedEvent += LookingForPlanes;                         
        // UnityARSessionNativeInterface.ARAnchorRemovedEvent += AnchorRemoved;
     }
 
  
     private void PlanesFound(ARPlaneAnchor anchorData)
     {
-        instructionText.text = "Plane detected!! Now place the portal to the room of your choice and shoot a ball.";
+        instructionText.text = "Plane detected!! Now place portal to the room of your choice and shoot a ball.";    // User instruction to notify users about placing the portal after plane detection
    
     }
 
     //private void AnchorRemoved(ARPlaneAnchor anchorData)
     //{
-    //    instructionText.text = "Juna Planes gaya. Looking for the planes, keep the camera pointed to the floor.";
+    //    instructionText.text = "Planes removed";
     //}
 
 
-    public void Visit_Living_Room()      // performing a hittest on detected plane 
+    public void Visit_Living_Room()    // Place a portal to the Living Room 3D model
     {
 
-
+        destination.transform.position = new Vector3(2.134f, 176.6f, 1.889f);                   // Relocate the destination of 3D model of Living Room
         ARPoint point = new ARPoint
         {
             x = 0.5f, //do a hit test at the center of the screen
@@ -91,6 +91,9 @@ public class DoorManager : MonoBehaviour
 
                 Instantiate(particleLauncher, position + new Vector3(0, 0.2f, 0), rotation);        // particle animation
                 instructionText.text = "Enjoy your journey!!";
+                Vector3 currentAngle = transform.eulerAngles;
+                transform.LookAt(Camera.main.transform);
+                transform.eulerAngles = new Vector3(currentAngle.x, transform.eulerAngles.y, currentAngle.z);               // Angle correction for the door that is placed
                 return true;
 
             }
@@ -104,7 +107,7 @@ public class DoorManager : MonoBehaviour
     // This needs to be replaced with the one with featurepoints
     public void OpenDoorInFront(Vector3 pos, Quaternion rot)
     {
-        if (!isCurrDoorOpen)        // 
+        if (!isCurrDoorOpen)        
         {
             if (isNextDoorVirtual)
                 currDoor = doorToVirtual;
@@ -120,8 +123,7 @@ public class DoorManager : MonoBehaviour
 
             currDoor.GetComponentInParent<Portal>().Source.transform.localPosition = currDoor.transform.position;
 
-            // Instantiate(particleLauncher, pos, rot);
-           // StartCoroutine(ScaleOverTime(2, currDoor));  // coroutine to scale the door overtime
+           // StartCoroutine(ScaleOverTime(2, currDoor));               // coroutine to scale the door overtime
             isCurrDoorOpen = true;
 
             if (OnDoorOpen != null)
@@ -131,12 +133,31 @@ public class DoorManager : MonoBehaviour
         }
     }
 
-    public void Visit_Model_House()      // performing a hittest on detected plane 
+    public void Visit_Model_House()     // Place a portal to the Model House 3D model
     {
-        ReTrack();      // Testing the retracking function here.
+        destination.transform.position = new Vector3(2.134f, 201.6f, 1.889f);           // Relocate the destination of 3D model of Model House
+        ARPoint point = new ARPoint
+        {
+            x = 0.5f, //do a hit test at the center of the screen
+            y = 0.5f
+        };
+
+        // prioritize result types
+        ARHitTestResultType[] resultTypes = {
+            ARHitTestResultType.ARHitTestResultTypeHorizontalPlane
+                       ,ARHitTestResultType.ARHitTestResultTypeFeaturePoint
+        };
+
+        foreach (ARHitTestResultType resultType in resultTypes)
+        {
+            if (HitTestWithResultType(point, resultType))
+            {
+                return;
+            }
+        }
     }
 
-    public void ReTrack()
+    public void ReTrack()           // Used for retracking of planes
     {
         ARKitWorldTrackingSessionConfiguration sessionConfig = new ARKitWorldTrackingSessionConfiguration(UnityARAlignment.UnityARAlignmentGravity, UnityARPlaneDetection.Horizontal);
         UnityARSessionNativeInterface.GetARSessionNativeInterface().RunWithConfigAndOptions(sessionConfig, UnityARSessionRunOption.ARSessionRunOptionRemoveExistingAnchors | UnityARSessionRunOption.ARSessionRunOptionResetTracking);
@@ -148,10 +169,29 @@ public class DoorManager : MonoBehaviour
     // portal was entered.
     private void OnDoorEntrance()
     {
-        currDoor.SetActive(false);       //false
+        currDoor.SetActive(false);       
         isCurrDoorOpen = false;
         isNextDoorVirtual = !isNextDoorVirtual;
     }
+
+    IEnumerator ScaleOverTime(float time, GameObject crDoor)
+    {
+        Vector3 originalScale = crDoor.transform.localScale;
+        Vector3 destinationScale = new Vector3(1.2f, 1.2f, 1.2f);
+
+        float currentTime = 0.0f;
+
+        do
+        {
+            crDoor.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime <= time);
+
+
+    }
+
+
 }
 
 

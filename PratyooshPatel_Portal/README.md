@@ -7,4 +7,4 @@ The project theme for this is Room Interior and Real Estate.
 
 You will be able to shoot balls and check every minor detail of room interior.
 
-### Compiled in Unity 2017.1.1f1
+### Compiled in Unity 2018.1.0b6
