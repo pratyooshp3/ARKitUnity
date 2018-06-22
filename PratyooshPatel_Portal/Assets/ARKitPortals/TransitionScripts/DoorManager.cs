@@ -20,24 +20,44 @@ public class DoorManager : MonoBehaviour
     public UnityEngine.ParticleSystem particleLauncher;
     public Camera mainCamera;
     private List<GameObject> spawnedObjects = new List<GameObject>();
-    private GameObject currDoor; 
-
+    private GameObject currDoor;
+    private Vector3 position;
+    private Quaternion rotation;
     private bool isCurrDoorOpen = false;
     private bool isNextDoorVirtual = true;
 
-
+    public Rigidbody projectile;            // Projectile to be thrown
+    public Transform shotPos;              // Shooting position
+    public float shotForce = 25f;
+    public float moveSpeed = 1f;
+    private bool shoot = false;
 
     void Start()
     {
+        
         instructionText.text = "Looking for the planes, keep the camera pointed to the floor.";         // User instruction to keep the phone pointed to the floor
         PortalTransition.OnPortalTransition += OnDoorEntrance;
+        PortalTransition.OnBallPortalTransition += OnBallEntrance;
+
 
         UnityARSessionNativeInterface.ARAnchorAddedEvent += PlanesFound;   
        // UnityARSessionNativeInterface.ARFrameUpdatedEvent += LookingForPlanes;                         
        // UnityARSessionNativeInterface.ARAnchorRemovedEvent += AnchorRemoved;
     }
 
- 
+    void Update()
+    {
+
+        if (shoot)
+        {
+            shoot = false;
+            Rigidbody shot = Instantiate(projectile, shotPos.position, shotPos.rotation) as Rigidbody;
+            shot.AddForce(shotPos.forward * shotForce);
+           
+        }
+
+    }
+
     private void PlanesFound(ARPlaneAnchor anchorData)
     {
         instructionText.text = "Plane detected!! Now place portal to the room of your choice and shoot a ball.";    // User instruction to notify users about placing the portal after plane detection
@@ -54,6 +74,7 @@ public class DoorManager : MonoBehaviour
     {
 
         destination.transform.position = new Vector3(2.134f, 176.6f, 1.889f);                   // Relocate the destination of 3D model of Living Room
+        position = destination.transform.position;
         ARPoint point = new ARPoint
         {
             x = 0.5f, //do a hit test at the center of the screen
@@ -75,6 +96,30 @@ public class DoorManager : MonoBehaviour
         }
     }
 
+    public void Visit_Model_House()     // Place a portal to the Model House 3D model
+    {
+        destination.transform.position = new Vector3(2.134f, 201.6f, 1.889f);           // Relocate the destination of 3D model of Model House
+        position = destination.transform.position;
+        ARPoint point = new ARPoint
+        {
+            x = 0.5f, //do a hit test at the center of the screen
+            y = 0.5f
+        };
+
+        // prioritize result types
+        ARHitTestResultType[] resultTypes = {
+            ARHitTestResultType.ARHitTestResultTypeHorizontalPlane
+                       ,ARHitTestResultType.ARHitTestResultTypeFeaturePoint
+        };
+
+        foreach (ARHitTestResultType resultType in resultTypes)
+        {
+            if (HitTestWithResultType(point, resultType))
+            {
+                return;
+            }
+        }
+    }
 
     bool HitTestWithResultType(ARPoint point, ARHitTestResultType resultTypes)      // UI button
     {
@@ -109,17 +154,21 @@ public class DoorManager : MonoBehaviour
     {
         if (!isCurrDoorOpen)        
         {
-            if (isNextDoorVirtual)
-                currDoor = doorToVirtual;
-            else
-                currDoor = doorToReality;
+            //if (isNextDoorVirtual)
+            //    currDoor = doorToVirtual;
+            //else
+                //currDoor = doorToReality;
+            Debug.Log("$$$$$$$$$$ Frontdoor Opened $$$$$$$$$$");
 
+            currDoor = doorToVirtual;
 
             currDoor.SetActive(true);
 
             currDoor.transform.position = pos;
 
             currDoor.transform.rotation = rot;
+
+            rotation = rot;
 
             currDoor.GetComponentInParent<Portal>().Source.transform.localPosition = currDoor.transform.position;
 
@@ -133,45 +182,92 @@ public class DoorManager : MonoBehaviour
         }
     }
 
-    public void Visit_Model_House()     // Place a portal to the Model House 3D model
+   
+
+    private void OnBallEntrance()
     {
-        destination.transform.position = new Vector3(2.134f, 201.6f, 1.889f);           // Relocate the destination of 3D model of Model House
-        ARPoint point = new ARPoint
+        if (isCurrDoorOpen)     // Entry
         {
-            x = 0.5f, //do a hit test at the center of the screen
-            y = 0.5f
-        };
+            
 
-        // prioritize result types
-        ARHitTestResultType[] resultTypes = {
-            ARHitTestResultType.ARHitTestResultTypeHorizontalPlane
-                       ,ARHitTestResultType.ARHitTestResultTypeFeaturePoint
-        };
+            Debug.Log("~~~~~~~~~~~~~~~BallEntrance called~~~~~~~~~~~~~~~");
+            shotPos.transform.position = position +new Vector3(0, 0f, 1f);
+            shotPos.transform.rotation  = rotation;         //*= Quaternion.Euler(0, 180, 0);
+           
+            shoot = true;
 
-        foreach (ARHitTestResultType resultType in resultTypes)
-        {
-            if (HitTestWithResultType(point, resultType))
-            {
-                return;
-            }
+            Debug.Log("Location of the back door ball shooter " + shotPos.transform.position.ToString("F4"));
+
+
+            //OpenDoorOnBack(position, rotation);
+
         }
+       
+
+       
+    }
+
+    // Respond to the player walking into the doorway. Since there are only two portals, we don't need to pass which
+    // portal was entered.
+    private void OnDoorEntrance()
+    {
+        if (isCurrDoorOpen)     // Entry
+        {
+            Debug.Log("$$$$$$$$$$ Frontdoor Entered $$$$$$$$$$");
+            currDoor.SetActive(false);
+            isCurrDoorOpen = false;
+            isNextDoorVirtual = !isNextDoorVirtual;
+            OpenDoorOnBack(position, rotation);
+           
+        }
+        else
+        {                  // Exit
+            currDoor.SetActive(false);
+            isCurrDoorOpen = true;
+            isNextDoorVirtual = !isNextDoorVirtual;
+            instructionText.text = "I hope you enjoyed your visit. See you soon.";         // User instruction to keep the phone pointed to the floor
+        }
+    }
+
+    public void OpenDoorOnBack(Vector3 pos, Quaternion rot)
+    {
+            //if (isNextDoorVirtual)
+            //    currDoor = doorToVirtual;
+            //else
+                //currDoor = doorToReality;
+
+            Debug.Log("$$$$$$$$$$ Backdoor Opened $$$$$$$$$$");
+
+            currDoor = doorToReality;
+
+            currDoor.SetActive(true);
+
+            currDoor.transform.position = pos + new Vector3(0,0,-1f);
+
+            rot *= Quaternion.Euler(0, 180, 0);
+
+            currDoor.transform.rotation = rot;
+
+            rotation = rot;
+
+            currDoor.GetComponentInParent<Portal>().Source.transform.localPosition = currDoor.transform.position;
+
+            Debug.Log("Location of the back door "+currDoor.transform.position.ToString("F4"));
+
+            // StartCoroutine(ScaleOverTime(2, currDoor));               // coroutine to scale the door overtime
+            isCurrDoorOpen = false;
+
+            if (OnDoorOpen != null)
+            {
+                OnDoorOpen(currDoor.transform);
+            }
+      
     }
 
     public void ReTrack()           // Used for retracking of planes
     {
         ARKitWorldTrackingSessionConfiguration sessionConfig = new ARKitWorldTrackingSessionConfiguration(UnityARAlignment.UnityARAlignmentGravity, UnityARPlaneDetection.Horizontal);
         UnityARSessionNativeInterface.GetARSessionNativeInterface().RunWithConfigAndOptions(sessionConfig, UnityARSessionRunOption.ARSessionRunOptionRemoveExistingAnchors | UnityARSessionRunOption.ARSessionRunOptionResetTracking);
-    }
-
-
-
-    // Respond to the player walking into the doorway. Since there are only two portals, we don't need to pass which
-    // portal was entered.
-    private void OnDoorEntrance()
-    {
-        currDoor.SetActive(false);       
-        isCurrDoorOpen = false;
-        isNextDoorVirtual = !isNextDoorVirtual;
     }
 
     IEnumerator ScaleOverTime(float time, GameObject crDoor)

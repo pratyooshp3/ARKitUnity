@@ -6,10 +6,16 @@ public class Shooter_Script : MonoBehaviour {       // Script attached to main c
 
     public Rigidbody projectile;            // Projectile to be thrown
     public Transform shotPos;               // Shooting position
-    public float shotForce = 10f;            
+    public float shotForce = 25f;            
     public float moveSpeed = 1f;
     private bool shoot = false;
-	void Update () {
+
+
+    private void Start()
+    {
+      
+    }
+    void Update () {
 
         if (shoot)
         {
