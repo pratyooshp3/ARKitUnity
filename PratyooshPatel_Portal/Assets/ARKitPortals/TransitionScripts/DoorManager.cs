@@ -26,7 +26,10 @@ public class DoorManager : MonoBehaviour
     private bool isCurrDoorOpen = false;
     private bool isNextDoorVirtual = true;
 
+    public GameObject fireButton;
+    public Rigidbody projectileRealWorld; 
     public Rigidbody projectile;            // Projectile to be thrown
+    public Transform shotPosReal;              // Shooting position
     public Transform shotPos;              // Shooting position
     public float shotForce = 25f;
     public float moveSpeed = 1f;
@@ -34,7 +37,7 @@ public class DoorManager : MonoBehaviour
 
     void Start()
     {
-        
+        fireButton.SetActive(false);
         instructionText.text = "Looking for the planes, keep the camera pointed to the floor.";         // User instruction to keep the phone pointed to the floor
         PortalTransition.OnPortalTransition += OnDoorEntrance;
         PortalTransition.OnBallPortalTransition += OnBallEntrance;
@@ -51,8 +54,8 @@ public class DoorManager : MonoBehaviour
         if (shoot)
         {
             shoot = false;
-            Rigidbody shot = Instantiate(projectile, shotPos.position, shotPos.rotation) as Rigidbody;
-            shot.AddForce(shotPos.forward * shotForce);
+            Rigidbody shot = Instantiate(projectileRealWorld, shotPosReal.position, shotPosReal.rotation) as Rigidbody;
+            shot.AddForce(shotPosReal.forward * shotForce);
            
         }
 
@@ -61,7 +64,7 @@ public class DoorManager : MonoBehaviour
     private void PlanesFound(ARPlaneAnchor anchorData)
     {
         instructionText.text = "Plane detected!! Now place portal to the room of your choice and shoot a ball.";    // User instruction to notify users about placing the portal after plane detection
-   
+
     }
 
     //private void AnchorRemoved(ARPlaneAnchor anchorData)
@@ -72,7 +75,7 @@ public class DoorManager : MonoBehaviour
 
     public void Visit_Living_Room()    // Place a portal to the Living Room 3D model
     {
-
+        fireButton.SetActive(true);
         destination.transform.position = new Vector3(2.134f, 176.6f, 1.889f);                   // Relocate the destination of 3D model of Living Room
         position = destination.transform.position;
         ARPoint point = new ARPoint
@@ -98,6 +101,7 @@ public class DoorManager : MonoBehaviour
 
     public void Visit_Model_House()     // Place a portal to the Model House 3D model
     {
+        fireButton.SetActive(true);
         destination.transform.position = new Vector3(2.134f, 201.6f, 1.889f);           // Relocate the destination of 3D model of Model House
         position = destination.transform.position;
         ARPoint point = new ARPoint
@@ -134,7 +138,7 @@ public class DoorManager : MonoBehaviour
 
                 OpenDoorInFront(position , rotation);             // Passing the data to spwan the portal on detected dimentions from hit test
 
-                Instantiate(particleLauncher, position + new Vector3(0, 0.2f, 0), rotation);        // particle animation
+                Instantiate(particleLauncher, position + new Vector3(0, 1f, 0), rotation);        // particle animation
                 instructionText.text = "Enjoy your journey!!";
                 Vector3 currentAngle = transform.eulerAngles;
                 transform.LookAt(Camera.main.transform);
@@ -145,8 +149,6 @@ public class DoorManager : MonoBehaviour
         }
         return false;
     }
-
-
 
     // This method is called from the Spawn Portal button in the UI. It spawns a portal in front of you.
     // This needs to be replaced with the one with featurepoints
@@ -170,6 +172,10 @@ public class DoorManager : MonoBehaviour
 
             rotation = rot;
 
+            shotPosReal.transform.position = pos + new Vector3(0, 0f, -1.5f);
+
+            shotPosReal.transform.rotation = rot;
+
             currDoor.GetComponentInParent<Portal>().Source.transform.localPosition = currDoor.transform.position;
 
            // StartCoroutine(ScaleOverTime(2, currDoor));               // coroutine to scale the door overtime
@@ -182,23 +188,26 @@ public class DoorManager : MonoBehaviour
         }
     }
 
+    public void FireAtWill()            // Function attached to the GUI Button, shoots a ball per click
+    {
+        shoot = true;
+        Debug.Log("Firing at " + shotPosReal.transform.position.ToString("F4"));
+    }
+
    
 
     private void OnBallEntrance()
     {
         if (isCurrDoorOpen)     // Entry
         {
-            
-
             Debug.Log("~~~~~~~~~~~~~~~BallEntrance called~~~~~~~~~~~~~~~");
-            shotPos.transform.position = position +new Vector3(0, 0f, 1f);
+            shotPos.transform.position = position + new Vector3(0, -0.2f, 1f);
             shotPos.transform.rotation  = rotation;         //*= Quaternion.Euler(0, 180, 0);
            
-            shoot = true;
+            Rigidbody shot = Instantiate(projectile, shotPos.position, shotPos.rotation) as Rigidbody;
+            shot.AddForce(shotPos.forward * shotForce);
 
             Debug.Log("Location of the back door ball shooter " + shotPos.transform.position.ToString("F4"));
-
-
             //OpenDoorOnBack(position, rotation);
 
         }

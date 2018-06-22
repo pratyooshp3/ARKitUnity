@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 111010477}
   - component: {fileID: 111010476}
   m_Layer: 5
-  m_Name: Fire
+  m_Name: FireButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 906000353}
+      - m_Target: {fileID: 1807178762}
         m_MethodName: FireAtWill
         m_Mode: 1
         m_Arguments:
@@ -448,6 +448,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 111010474}
+--- !u!1 &133804375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 133804376}
+  m_Layer: 0
+  m_Name: static shooter transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &133804376
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 133804375}
+  m_LocalRotation: {x: -0.13052624, y: -0, z: -0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
 --- !u!1 &144707888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,8 +2544,12 @@ MonoBehaviour:
   particleLauncher: {fileID: 198073237029142638, guid: 67c1cfa7296534e32bef6da23f6e3380,
     type: 2}
   mainCamera: {fileID: 906000345}
+  fireButton: {fileID: 111010474}
+  projectileRealWorld: {fileID: 54420702052137214, guid: 81b78d1c60dd344298744dfb2e7e64a5,
+    type: 2}
   projectile: {fileID: 54873683992794492, guid: 142650dd5cb87422ab39a8bd4b883c9a,
     type: 2}
+  shotPosReal: {fileID: 133804376}
   shotPos: {fileID: 265670318}
   shotForce: 60
   moveSpeed: 1

@@ -11,10 +11,6 @@ public class Shooter_Script : MonoBehaviour {       // Script attached to main c
     private bool shoot = false;
 
 
-    private void Start()
-    {
-      
-    }
     void Update () {
 
         if (shoot)
@@ -26,9 +22,9 @@ public class Shooter_Script : MonoBehaviour {       // Script attached to main c
 		
 	}
 
-    public void FireAtWill()            // Function attached to the GUI Button, shoots a ball per click
-    {
-        shoot = true;
-    }
+    //public void FireAtWill()            // Function attached to the GUI Button, shoots a ball per click
+    //{
+    //    shoot = true;
+    //}
 
 }
